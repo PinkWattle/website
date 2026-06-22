@@ -1,0 +1,20 @@
+<!-- PLACEHOLDER HERO IMAGE — replace with a real photo (recommended ~ 1200 x 1000, portrait-ish) -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1000" role="img" aria-label="Placeholder hero image">
+  <defs>
+    <linearGradient id="heroGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e8a0b4"/>
+      <stop offset="1" stop-color="#c45c7c"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="1000" fill="url(#heroGrad)"/>
+  <g fill="#fdf0f4" opacity="0.85">
+    <circle cx="380" cy="360" r="70"/>
+    <circle cx="520" cy="270" r="70"/>
+    <circle cx="600" cy="430" r="70"/>
+    <circle cx="450" cy="500" r="70"/>
+    <circle cx="700" cy="350" r="70"/>
+    <circle cx="640" cy="560" r="70"/>
+  </g>
+  <text x="600" y="700" text-anchor="middle" font-family="Segoe UI, system-ui, sans-serif" font-size="44" font-weight="700" fill="#ffffff">Hero image placeholder</text>
+  <text x="600" y="760" text-anchor="middle" font-family="Segoe UI, system-ui, sans-serif" font-size="26" fill="#fdf0f4">1200 × 1000</text>
+</svg>
