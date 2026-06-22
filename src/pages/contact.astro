@@ -1,0 +1,357 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../config';
+---
+
+<BaseLayout
+  title="Contact"
+  description={`Get in touch with Pink Wattle Occupational Therapy in ${SITE.location}. Email ${SITE.email} or send us a message.`}
+>
+  <section class="section contact-section">
+    <div class="container contact-grid">
+      <!-- Intro / details -->
+      <div class="contact-intro">
+        <span class="eyebrow">Contact us</span>
+        <h1>Let’s talk about how we can help</h1>
+        <p>
+          Whether you’re ready to get started or just have a question, we’d love
+          to hear from you. Fill in the form and one of our therapists will be in
+          touch, or email us directly.
+        </p>
+
+        <div class="contact-detail">
+          <h2>Email</h2>
+          <p><a href={`mailto:${SITE.email}`}>{SITE.email}</a></p>
+        </div>
+
+        <div class="contact-detail">
+          <h2>Service area</h2>
+          <p>{SITE.location} — we come to you.</p>
+        </div>
+
+        <div class="contact-detail">
+          <h2>Clients</h2>
+          <p>NDIS &amp; private · paediatrics through to adults</p>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="contact-card">
+        <form
+          id="contact-form"
+          action={SITE.formspreeEndpoint}
+          method="POST"
+        >
+          <div class="field">
+            <label for="name">Name <span class="req" aria-hidden="true">*</span></label>
+            <input type="text" id="name" name="name" autocomplete="name" required />
+          </div>
+
+          <div class="field-group">
+            <div class="field">
+              <label for="email">
+                Email
+                <span class="contact-hint">(or phone)</span>
+              </label>
+              <input type="email" id="email" name="email" autocomplete="email" />
+            </div>
+            <div class="field">
+              <label for="phone">
+                Phone
+                <span class="contact-hint">(or email)</span>
+              </label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel" />
+            </div>
+          </div>
+          <p id="contact-error" class="field-error" role="alert" aria-live="assertive"></p>
+
+          <div class="field">
+            <label for="suburb">Suburb / Region</label>
+            <input type="text" id="suburb" name="suburb" autocomplete="address-level2" />
+          </div>
+
+          <div class="field-group">
+            <div class="field">
+              <label for="age-group">Age group</label>
+              <select id="age-group" name="age group">
+                <option value="">— Optional —</option>
+                <option>N/A</option>
+                <option>Paediatrics</option>
+                <option>Young adult</option>
+                <option>Adult</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="service-type">Service type</label>
+              <select id="service-type" name="service type">
+                <option value="">— Optional —</option>
+                <option>Skills and Capacity Building</option>
+                <option>Assistive Technology</option>
+                <option>Home Modifications</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="message">Message <span class="req" aria-hidden="true">*</span></label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+
+          <!-- Lets Formspree label the notification email it sends you -->
+          <input type="hidden" name="_subject" value="New enquiry from the Pink Wattle website" />
+
+          <!-- Honeypot anti-spam field — humans never see or fill this -->
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="visually-hidden" aria-hidden="true" />
+
+          <button type="submit" class="btn btn--primary form-submit">Send message</button>
+
+          <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+
+          <p class="form-fallback">
+            Prefer email? Reach us any time at
+            <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: start;
+  }
+
+  .contact-intro h1 {
+    margin-block: 0.75rem 1.25rem;
+  }
+
+  .contact-intro > p {
+    color: var(--color-text-muted);
+    font-size: 1.1rem;
+    max-width: 46ch;
+  }
+
+  .contact-detail {
+    margin-top: 1.75rem;
+  }
+
+  .contact-detail h2 {
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 0.35rem;
+  }
+
+  .contact-detail p {
+    font-size: 1.05rem;
+  }
+
+  /* ---- Form card ---- */
+  .contact-card {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+    box-shadow: var(--shadow-md);
+  }
+
+  .field {
+    margin-bottom: 1.25rem;
+  }
+
+  .field label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .req {
+    color: var(--color-primary);
+  }
+
+  .field-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .field-group .field {
+    margin-bottom: 0;
+  }
+
+  .contact-hint {
+    font-weight: 400;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin-left: 0.3rem;
+  }
+
+  .field-error {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-primary-dark);
+    margin-top: -0.5rem;
+    margin-bottom: 1.25rem;
+    display: none;
+  }
+
+  .field-error:not(:empty) {
+    display: block;
+  }
+
+  .field--invalid input,
+  .field--invalid select {
+    border-color: var(--color-primary-dark);
+  }
+
+  @media (max-width: 500px) {
+    .field-group {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .field input,
+  .field select,
+  .field textarea {
+    width: 100%;
+    padding: 0.75rem 0.9rem;
+    font: inherit;
+    color: var(--color-text);
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    transition: border-color var(--transition), box-shadow var(--transition);
+  }
+
+  .field input:focus,
+  .field select:focus,
+  .field textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px var(--color-secondary);
+  }
+
+  .field textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .form-submit {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  .form-status {
+    margin-top: 1rem;
+    font-weight: 600;
+    display: none;
+  }
+
+  .form-status.is-success {
+    display: block;
+    color: var(--color-accent);
+  }
+
+  .form-status.is-error {
+    display: block;
+    color: var(--color-primary-dark);
+  }
+
+  .form-fallback {
+    margin-top: 1.25rem;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    text-align: center;
+  }
+
+  @media (max-width: 860px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const status = document.getElementById('form-status');
+  const contactError = document.getElementById('contact-error');
+  const emailField = document.getElementById('email')?.closest('.field');
+  const phoneField = document.getElementById('phone')?.closest('.field');
+
+  function clearContactError() {
+    if (contactError) contactError.textContent = '';
+    emailField?.classList.remove('field--invalid');
+    phoneField?.classList.remove('field--invalid');
+  }
+
+  document.getElementById('email')?.addEventListener('input', clearContactError);
+  document.getElementById('phone')?.addEventListener('input', clearContactError);
+
+  form?.addEventListener('submit', async (event) => {
+    // Don't hijack the submit until we know the endpoint is configured.
+    if (form.action.includes('YOUR_FORM_ID')) {
+      event.preventDefault();
+      if (status) {
+        status.textContent =
+          'Form not configured yet — add your Formspree form ID in src/config.ts.';
+        status.className = 'form-status is-error';
+      }
+      return;
+    }
+
+    const emailVal = (document.getElementById('email') as HTMLInputElement)?.value.trim();
+    const phoneVal = (document.getElementById('phone') as HTMLInputElement)?.value.trim();
+
+    if (!emailVal && !phoneVal) {
+      event.preventDefault();
+      if (contactError) {
+        contactError.textContent = 'Please provide at least an email address or phone number so we can reach you.';
+      }
+      emailField?.classList.add('field--invalid');
+      phoneField?.classList.add('field--invalid');
+      emailField?.querySelector('input')?.focus();
+      return;
+    }
+
+    event.preventDefault();
+    clearContactError();
+    const data = new FormData(form);
+
+    if (status) {
+      status.textContent = 'Sending…';
+      status.className = 'form-status';
+      status.style.display = 'block';
+    }
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { Accept: 'application/json' },
+      });
+
+      if (response.ok) {
+        form.reset();
+        if (status) {
+          status.textContent =
+            'Thanks for getting in touch! We’ll be in contact soon.';
+          status.className = 'form-status is-success';
+        }
+      } else {
+        throw new Error('Submission failed');
+      }
+    } catch {
+      if (status) {
+        status.textContent =
+          'Sorry, something went wrong. Please email us at admin@pinkwattle.com.au.';
+        status.className = 'form-status is-error';
+      }
+    }
+  });
+</script>

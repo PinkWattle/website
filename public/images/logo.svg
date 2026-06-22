@@ -1,0 +1,12 @@
+<!-- PLACEHOLDER LOGO — replace with the real Pink Wattle logo (recommended ~ 320 x 80) -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" role="img" aria-label="Pink Wattle Occupational Therapy">
+  <g transform="translate(8, 16)">
+    <circle cx="14" cy="20" r="6" fill="#c45c7c"/>
+    <circle cx="26" cy="12" r="6" fill="#e8a0b4"/>
+    <circle cx="32" cy="26" r="6" fill="#c45c7c"/>
+    <circle cx="20" cy="34" r="6" fill="#e8a0b4"/>
+    <circle cx="40" cy="18" r="6" fill="#6b8f71"/>
+  </g>
+  <text x="64" y="38" font-family="Segoe UI, system-ui, sans-serif" font-size="26" font-weight="700" fill="#2d2d2d">Pink Wattle</text>
+  <text x="65" y="58" font-family="Segoe UI, system-ui, sans-serif" font-size="12.5" letter-spacing="2.5" fill="#6b8f71">OCCUPATIONAL THERAPY</text>
+</svg>
