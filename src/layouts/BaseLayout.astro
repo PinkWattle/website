@@ -33,11 +33,99 @@ const pageTitle = title
     <meta property="og:site_name" content={SITE.name} />
   </head>
   <body>
-    <a class="skip-link" href="#main">Skip to content</a>
-    <Header />
-    <main id="main">
-      <slot />
-    </main>
-    <Footer />
+    <div id="dev-gate">
+      <form id="dev-gate-form">
+        <p>Dev preview</p>
+        <input id="dev-gate-input" type="password" placeholder="Password" autocomplete="off" />
+        <button type="submit">Enter</button>
+        <p id="dev-gate-error"></p>
+      </form>
+    </div>
+
+    <div id="site-content" style="display:none">
+      <a class="skip-link" href="#main">Skip to content</a>
+      <Header />
+      <main id="main">
+        <slot />
+      </main>
+      <Footer />
+    </div>
+
+    <style>
+      #dev-gate {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background: var(--color-background);
+      }
+      #dev-gate form {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        align-items: center;
+        background: var(--color-white);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-md);
+        padding: 2rem 2.5rem;
+        box-shadow: var(--shadow-md);
+      }
+      #dev-gate p:first-child {
+        font-weight: 700;
+        color: var(--color-primary);
+        font-size: 1.1rem;
+      }
+      #dev-gate input {
+        padding: 0.65rem 0.9rem;
+        font: inherit;
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-sm);
+        width: 200px;
+        text-align: center;
+      }
+      #dev-gate input:focus {
+        outline: none;
+        border-color: var(--color-primary);
+        box-shadow: 0 0 0 3px var(--color-secondary);
+      }
+      #dev-gate button {
+        width: 100%;
+      }
+      #dev-gate-error {
+        color: var(--color-primary-dark);
+        font-size: 0.9rem;
+        min-height: 1.2em;
+      }
+    </style>
+
+    <script>
+      const PASS = 'dev';
+      const gate = document.getElementById('dev-gate');
+      const content = document.getElementById('site-content');
+      const form = document.getElementById('dev-gate-form') as HTMLFormElement;
+      const input = document.getElementById('dev-gate-input') as HTMLInputElement;
+      const error = document.getElementById('dev-gate-error');
+
+      function unlock() {
+        sessionStorage.setItem('dev-unlocked', '1');
+        gate!.style.display = 'none';
+        content!.style.display = '';
+      }
+
+      if (sessionStorage.getItem('dev-unlocked') === '1') {
+        unlock();
+      }
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        if (input.value === PASS) {
+          unlock();
+        } else {
+          if (error) error.textContent = 'Incorrect password.';
+          input.value = '';
+          input.focus();
+        }
+      });
+    </script>
   </body>
 </html>

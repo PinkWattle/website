@@ -1,1 +1,0 @@
-const t=document.querySelector(".nav-toggle"),n=document.getElementById("primary-nav");t?.addEventListener("click",()=>{const e=n?.classList.toggle("is-open");t.setAttribute("aria-expanded",String(!!e))});n?.querySelectorAll("a").forEach(e=>{e.addEventListener("click",()=>{n.classList.remove("is-open"),t?.setAttribute("aria-expanded","false")})});
