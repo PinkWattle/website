@@ -6,21 +6,21 @@
    ========================================================================= */
 
 :root {
-  /* ---- Brand palette (from brief) ---- */
-  --color-primary: #c45c7c;        /* Buttons, links, key headings            */
-  --color-primary-dark: #a3486a;   /* Button hover state for --color-primary  */
-  --color-secondary: #e8a0b4;      /* Hover states, subtle highlights         */
-  --color-accent: #6b8f71;         /* Supporting elements, icons, tags        */
-  --color-background: #fdf0f4;      /* Page / section backgrounds              */
-  --color-text: #2d2d2d;           /* Body copy, headings                     */
+  /* ---- Brand palette ---- */
+  --color-primary: #1e3d30;        /* Cool dark forest green — buttons, links, key headings */
+  --color-primary-dark: #142b21;   /* Deeper forest — hover state                          */
+  --color-secondary: #7a9e83;      /* Sage green — hover states, subtle highlights          */
+  --color-accent: #c45c7c;         /* Pink — accent notes, tags, icons                     */
+  --color-background: #e8f0ea;     /* Very light sage — page / section backgrounds         */
+  --color-text: #1a2e22;           /* Dark green-tinted — body copy, headings              */
 
-  --color-white: #ffffff;          /* Card backgrounds, nav                   */
-  --color-border: #e0c8d0;         /* Subtle dividers, input borders          */
+  --color-white: #ffffff;          /* Card backgrounds, nav                                */
+  --color-border: #c4d8c8;         /* Subtle green dividers, input borders                 */
 
   /* ---- Derived / supporting tokens ---- */
-  --color-text-muted: #5e5658;     /* Secondary copy, captions                */
-  --color-accent-soft: #eef3ef;    /* Tinted accent background for tags       */
-  --color-focus: #a3486a;          /* Focus rings (accessibility)             */
+  --color-text-muted: #4a6a52;     /* Secondary copy, captions                             */
+  --color-accent-soft: #fde8ef;    /* Light pink tint for tag / icon backgrounds           */
+  --color-focus: #1e3d30;          /* Focus rings (accessibility)                          */
 
   /* ---- Typography ---- */
   --font-body: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont,
@@ -36,9 +36,9 @@
   --radius-lg: 24px;
 
   /* ---- Elevation ---- */
-  --shadow-sm: 0 1px 2px rgba(45, 45, 45, 0.06);
-  --shadow-md: 0 8px 24px rgba(163, 72, 106, 0.10);
-  --shadow-lg: 0 18px 48px rgba(163, 72, 106, 0.16);
+  --shadow-sm: 0 1px 2px rgba(30, 61, 48, 0.06);
+  --shadow-md: 0 8px 24px rgba(30, 61, 48, 0.10);
+  --shadow-lg: 0 18px 48px rgba(30, 61, 48, 0.16);
 
   /* ---- Transitions ---- */
   --transition: 180ms ease;
@@ -69,6 +69,45 @@ body {
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+}
+
+/* =========================================================================
+   Leaf margin decorations
+   -------------------------------------------------------------------------
+   Two fixed divs sit at z-index 0. mix-blend-mode:multiply makes the white
+   PNG background disappear; only the coloured watercolour leaves remain.
+   #dev-gate and #site-content sit at z-index 1 so all page content renders
+   above the decorations.
+   ========================================================================= */
+
+.leaf-dec {
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 280px;
+  background-image: url('/images/side_leaves.png');
+  background-repeat: repeat-y;
+  background-size: 280px auto;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  z-index: 0;
+}
+
+.leaf-dec--left {
+  left: 0;
+  background-position: left top;
+}
+
+.leaf-dec--right {
+  right: 0;
+  background-position: left top;
+  transform: rotate(180deg);
+}
+
+#dev-gate,
+#site-content {
+  position: relative;
+  z-index: 1;
 }
 
 img,

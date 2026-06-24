@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Left-margin wattle branch: stem on outer (left) edge, phyllodes pointing inward (right) toward the content column -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 600">
+  <g fill="#1E3D30" opacity="0.08">
+    <!-- Gently curving main stem -->
+    <path d="M54 0 C50 100 60 220 52 350 C46 440 55 530 51 600"
+          stroke="#1E3D30" stroke-width="1.5" fill="none"/>
+
+    <!-- Cluster 1 — y ≈ 48–108 -->
+    <ellipse cx="98" cy="48"  rx="44" ry="5.5" transform="rotate(-28 53 48)"/>
+    <ellipse cx="98" cy="67"  rx="42" ry="5"   transform="rotate(-16 53 67)"/>
+    <ellipse cx="98" cy="86"  rx="40" ry="5"   transform="rotate(-5  53 86)"/>
+    <ellipse cx="98" cy="105" rx="38" ry="4.5" transform="rotate(7   53 105)"/>
+
+    <!-- Cluster 2 — y ≈ 170–235 -->
+    <ellipse cx="98" cy="170" rx="44" ry="5.5" transform="rotate(-24 53 170)"/>
+    <ellipse cx="98" cy="189" rx="42" ry="5"   transform="rotate(-13 53 189)"/>
+    <ellipse cx="98" cy="208" rx="40" ry="5"   transform="rotate(-2  53 208)"/>
+    <ellipse cx="98" cy="227" rx="38" ry="4.5" transform="rotate(9   53 227)"/>
+
+    <!-- Cluster 3 — y ≈ 295–360 -->
+    <ellipse cx="98" cy="293" rx="44" ry="5.5" transform="rotate(-26 53 293)"/>
+    <ellipse cx="98" cy="312" rx="42" ry="5"   transform="rotate(-14 53 312)"/>
+    <ellipse cx="98" cy="331" rx="40" ry="5"   transform="rotate(-3  53 331)"/>
+    <ellipse cx="98" cy="350" rx="38" ry="4.5" transform="rotate(8   53 350)"/>
+
+    <!-- Cluster 4 — y ≈ 415–480 -->
+    <ellipse cx="98" cy="413" rx="44" ry="5.5" transform="rotate(-25 53 413)"/>
+    <ellipse cx="98" cy="432" rx="42" ry="5"   transform="rotate(-13 53 432)"/>
+    <ellipse cx="98" cy="451" rx="40" ry="5"   transform="rotate(-2  53 451)"/>
+    <ellipse cx="98" cy="470" rx="38" ry="4.5" transform="rotate(8   53 470)"/>
+
+    <!-- Cluster 5 — y ≈ 530–590 (for seamless vertical tiling) -->
+    <ellipse cx="98" cy="530" rx="44" ry="5.5" transform="rotate(-26 53 530)"/>
+    <ellipse cx="98" cy="549" rx="42" ry="5"   transform="rotate(-14 53 549)"/>
+    <ellipse cx="98" cy="568" rx="40" ry="5"   transform="rotate(-3  53 568)"/>
+    <ellipse cx="98" cy="587" rx="38" ry="4.5" transform="rotate(7   53 587)"/>
+  </g>
+</svg>

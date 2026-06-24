@@ -18,7 +18,13 @@ const socials = SOCIAL_LINKS.filter((s) => ICONS[s.icon]);
 <footer class="site-footer">
   <div class="container footer-grid">
     <div class="footer-brand">
-      <img src="/images/logo.svg" alt="Pink Wattle Occupational Therapy" width="200" height="50" />
+      <div class="footer-logo">
+        <img src="/images/logo_notext.png" alt="" width="48" height="48" class="footer-logo-img" />
+        <span class="footer-logo-text">
+          <span class="footer-logo-name">Pink Wattle</span>
+          <span class="footer-logo-tagline">Occupational Therapy</span>
+        </span>
+      </div>
       <p>
         Mobile occupational therapy across {SITE.location}. Supporting NDIS and
         private clients, from paediatrics through to adults.
@@ -84,10 +90,38 @@ const socials = SOCIAL_LINKS.filter((s) => ICONS[s.icon]);
     padding-block: clamp(2.5rem, 6vw, 4rem);
   }
 
-  .footer-brand img {
-    height: 46px;
-    width: auto;
+  .footer-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
     margin-bottom: 1rem;
+  }
+
+  .footer-logo-img {
+    width: 48px;
+    height: 48px;
+    border-radius: 6px;
+    flex-shrink: 0;
+  }
+
+  .footer-logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+  }
+
+  .footer-logo-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-primary);
+  }
+
+  .footer-logo-tagline {
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--color-secondary);
   }
 
   .footer-brand p {
