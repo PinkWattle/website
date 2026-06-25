@@ -80,17 +80,23 @@ body {
    above the decorations.
    ========================================================================= */
 
+.page-wrap {
+  position: relative;
+  min-height: 100vh;
+}
+
 .leaf-dec {
-  position: fixed;
+  position: absolute;
   top: 0;
-  height: 100vh;
+  bottom: 0;
   width: 280px;
   background-image: url('/images/side_leaves.png');
   background-repeat: repeat-y;
-  background-size: 280px auto;
+  background-size: 420px auto;
   pointer-events: none;
   mix-blend-mode: multiply;
-  z-index: 0;
+  opacity: 0.5;
+  z-index: 2;
 }
 
 .leaf-dec--left {
@@ -107,7 +113,6 @@ body {
 #dev-gate,
 #site-content {
   position: relative;
-  z-index: 1;
 }
 
 img,

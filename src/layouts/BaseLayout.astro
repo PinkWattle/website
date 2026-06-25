@@ -33,25 +33,27 @@ const pageTitle = title
     <meta property="og:site_name" content={SITE.name} />
   </head>
   <body>
-    <div class="leaf-dec leaf-dec--left" aria-hidden="true"></div>
-    <div class="leaf-dec leaf-dec--right" aria-hidden="true"></div>
+    <div class="page-wrap">
+      <div class="leaf-dec leaf-dec--left" aria-hidden="true"></div>
+      <div class="leaf-dec leaf-dec--right" aria-hidden="true"></div>
 
-    <div id="dev-gate">
-      <form id="dev-gate-form">
-        <p>Dev preview</p>
-        <input id="dev-gate-input" type="password" placeholder="Password" autocomplete="off" />
-        <button type="submit">Enter</button>
-        <p id="dev-gate-error"></p>
-      </form>
-    </div>
+      <div id="dev-gate">
+        <form id="dev-gate-form">
+          <p>Dev preview</p>
+          <input id="dev-gate-input" type="password" placeholder="Password" autocomplete="off" />
+          <button type="submit">Enter</button>
+          <p id="dev-gate-error"></p>
+        </form>
+      </div>
 
-    <div id="site-content" style="display:none">
-      <a class="skip-link" href="#main">Skip to content</a>
-      <Header />
-      <main id="main">
-        <slot />
-      </main>
-      <Footer />
+      <div id="site-content" style="display:none">
+        <a class="skip-link" href="#main">Skip to content</a>
+        <Header />
+        <main id="main">
+          <slot />
+        </main>
+        <Footer />
+      </div>
     </div>
 
     <style>
